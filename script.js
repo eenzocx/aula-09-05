@@ -1,13 +1,13 @@
 console.log("Hello World!");
 
 const removeErro =(evt) => {
-    evt.currentTarget.classlist.remove("invalido");
+    evt.currentTarget.classList.remove("invalido");
 
 }
 
 
-const processarFOrm = (evt) => {
-    ev.preventDefault();
+const processarForm = (evt) => {
+    evt.preventDefault();
     const usuario = document.getElementById("usuario");
     const senha = document.getElementById("senha");
     const repetesenha = document.getElementById("repetesenha");
@@ -31,6 +31,43 @@ const processarFOrm = (evt) => {
         repetesenha.focus();
         return;
     }
+
+
+if (!["1", "2", "3"].includes.apply(cidade.value)) {
+    cidade.classList.add("invalido");
+    cidade.focus();
+    return;
 }
+
+if (!deacordo.checked) {
+    deacordo.classList.add("invalido");
+    deacordo.focus();
+    return;
+}
+
+const novoUsuario = {
+    usuario: usuario.value.trim(),
+    senha: senha.value,
+    cidade: cidade.value,
+};
+
+console.log(novoUsuario);
+
+};
+
+const iniciar = () => {
+    document.forms[0].addEventListener("submit", processarForm);
+
+    document
+    .querySelectorAll("input,select")
+    .forEach((campo) => campo.addEventListener("input", removeErro));
+
+
+
+};
+
+document.addEventListener("DOMContentLoaded", iniciar);
+
+
 
 
